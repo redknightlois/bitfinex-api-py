@@ -217,7 +217,7 @@ class BfxWebsocket(GenericWebsocket):
         if self.subscriptionManager.is_subscribed(data[0]):
             symbol = self.subscriptionManager.get(data[0]).symbol
             tradeObj = _parse_trade(tData, symbol)
-            self._emit('new_trade', tradeObj)
+            self._emit('update_trade', tradeObj)
 
     async def _trade_executed_handler(self, data):
         tData = data[2]
